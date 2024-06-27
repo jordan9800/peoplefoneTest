@@ -80,7 +80,7 @@
                 </li>
                 <li class=" nav-item"><a href="#"><i class="fa fa-table"></i><span class="menu-title" data-i18n="">Users</span></a>
                    <ul class="menu-content">
-                   <li><a class="menu-item" href="#">Users List</a>
+                   <li><a class="menu-item" href="{{ route('users.index') }}">Users List</a>
                    </li>
                   </ul>
                 </li>
