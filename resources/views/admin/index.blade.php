@@ -10,7 +10,7 @@
                 <div class="card-header">
                     <h4 class="card-title">Add Notification</h4>
                 </div>
-                <form action="{{route('posts.store')}}" method="post">
+                <form action="{{route('notifications.store')}}" method="post">
                    {{csrf_field()}}
                 <div class="card-content">
                     <div class="card-body">
