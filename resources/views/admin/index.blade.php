@@ -8,66 +8,79 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Add User</h4>
+                    <h4 class="card-title">Add Notification</h4>
                 </div>
-                <form action="#" method="post">
+                <form action="{{route('posts.store')}}" method="post">
                    {{csrf_field()}}
                 <div class="card-content">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
                                 <fieldset class="form-group">
-                                    <label for="basicInput">Name</label>
-                                    <input type="text" class="form-control" id="basicInput" name="name" required="" >
+                                    <label for="basicInput">Title</label>
+                                    <input type="text" class="form-control" id="basicInput" name="title" required="" >
                                 </fieldset>
-                                @if ($errors->has('name'))
-                                    <span class="text-danger">{{ $errors->first('name') }}</span>
+                                @if ($errors->has('title'))
+                                    <span class="text-danger">{{ $errors->first('title') }}</span>
                                  @endif
                             </div>
                             <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
                               <fieldset class="form-group">
-                                    <label for="basicInput">Email</label>
-                                    <input type="text" class="form-control" id="basicInput" name="email" required="" >
+                                    <label for="basicInput">Description</label>
+                                    <input type="text" class="form-control" id="basicInput" name="description" required="" >
                                 </fieldset>
-                                @if ($errors->has('email'))
-                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                @if ($errors->has('description'))
+                                    <span class="text-danger">{{ $errors->first('description') }}</span>
+                                 @endif
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                              <fieldset class="form-group">
+                                    <label for="basicInput">Expiry Date</label>
+                                    <input type="date" class="form-control" id="basicInput" name="expiry_date" required="" >
+                                </fieldset>
+                                @if ($errors->has('expiry_date'))
+                                    <span class="text-danger">{{ $errors->first('expiry_date') }}</span>
                                  @endif
                             </div>
                             <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
                                 <fieldset class="form-group">
-                                    <label for="basicInput">Phone Number</label>
-                                    <input type="text" class="form-control" id="basicInput" name="phone_number" required="" >
-                                </fieldset>
-                                @if ($errors->has('phone_number'))
-                                    <span class="text-danger">{{ $errors->first('phone_number') }}</span>
-                                 @endif
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
-                                <fieldset class="form-group">
-                                    <label for="basicInput">Password</label>
-                                    <input type="password" class="form-control" id="basicInput" name="password" required="" >
-                                </fieldset>
-                                @if ($errors->has('password'))
-                                    <span class="text-danger">{{ $errors->first('password') }}</span>
-                                 @endif
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
-                                <fieldset class="form-group">
-                                    <label for="basicInput">Password Confirmation</label>
-                                    <input type="password" class="form-control" id="basicInput" name="password_confirmation" required="" >
+                                    <label for="basicSelect">Global</label>
+                                    <select name="global" class="form-control" id="basicSelect">
+                                    <option value="">Select</option>
+                                    <option value="No" selected>No</option>
+                                    <option value="Yes">Yes</option>
+                                    </select>
                                 </fieldset>
                             </div>
 
-                              <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                            <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
                                 <fieldset class="form-group">
-                                    <label for="basicSelect">Country</label>
-                                    <select name="country" class="form-control" id="basicSelect" required="">
-                                      <option>Select Type</option>
-                                      <option value="India" selected>India</option>
-                                      <option value="USA">USA</option>
-                                      <option value="UK">UK</option>
+                                    <label for="basicSelect">User</label>
+                                    <select name="user" class="form-control" id="basicSelect">
+                                    <option value="">Select User</option>
+                                    @foreach ($users as $user)
+                                        <option value="{{$user->id}}">{{ $user->name}}</option>
+                                    @endforeach
                                     </select>
                                 </fieldset>
+                                @if ($errors->has('user'))
+                                    <span class="text-danger">{{ $errors->first('user') }}</span>
+                                @endif
+                            </div>
+
+                                <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                    <fieldset class="form-group">
+                                        <label for="basicSelect">Type</label>
+                                        <select name="type" class="form-control" id="basicSelect">
+                                        <option value="">Select Type</option>
+                                        @foreach ($types as $type)
+                                            <option value="{{$type->name}}">{{ $type->name}}</option>
+                                        @endforeach
+                                        </select>
+                                    </fieldset>
+                                    @if ($errors->has('type'))
+                                        <span class="text-danger">{{ $errors->first('type') }}</span>
+                                    @endif
                                 </div>
 
 

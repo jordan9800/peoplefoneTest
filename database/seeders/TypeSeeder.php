@@ -5,17 +5,17 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class PostTypeSeeder extends Seeder
+class TypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        // check if table post_types is empty
-        if (DB::table('post_types')->count() == 0) {
+        // check if table types is empty
+        if (DB::table('types')->count() == 0) {
 
-            DB::table('post_types')->insert([
+            DB::table('types')->insert([
 
                 [
                     'name' => 'Marketing',
